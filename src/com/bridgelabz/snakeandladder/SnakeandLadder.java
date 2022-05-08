@@ -8,6 +8,8 @@ public class SnakeandLadder {
     static final int SNAKE = 3;
     static final int WINNINGPOSITION = 100;
 
+    static int count;
+
     private static int dieRoll() {
         int dieValue = (int) (Math.random() * 10 % 6) + 1;
         return dieValue;
@@ -24,12 +26,15 @@ public class SnakeandLadder {
                 System.out.println("No Play");
                 break;
             case LADDER:
-                PLAYERPOSITION = PLAYERPOSITION + dieValue;
-                if(PLAYERPOSITION+dieValue>=100)
+                if(PLAYERPOSITION+dieValue>100)
                 {
                     PLAYERPOSITION=PLAYERPOSITION;
                 }
-                break;
+                else {
+
+                    PLAYERPOSITION = PLAYERPOSITION + dieValue;
+                }
+                    break;
             case SNAKE:
                 if(PLAYERPOSITION-dieValue <START_POSITION)
                 {
@@ -63,8 +68,9 @@ public class SnakeandLadder {
             PLAYERPOSITION= playgame(option, dieValue);
 
             System.out.println("Playerposition is " + PLAYERPOSITION);
-
-
+            count++;
         }
+        System.out.println("Number of times the Dice was played to win the game: "+count);
+
     }
 }
