@@ -25,11 +25,16 @@ public class SnakeandLadder {
                 break;
             case LADDER:
                 PLAYERPOSITION = PLAYERPOSITION + dieValue;
+                if(PLAYERPOSITION+dieValue>=100)
+                {
+                    PLAYERPOSITION=PLAYERPOSITION;
+                }
                 break;
             case SNAKE:
                 if(PLAYERPOSITION-dieValue <START_POSITION)
                 {
                     PLAYERPOSITION=START_POSITION;
+
                 }
                 else{
                     PLAYERPOSITION = PLAYERPOSITION - dieValue;
